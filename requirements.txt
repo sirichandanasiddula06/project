@@ -1,8 +1,6 @@
-flask
-gunicorn
-tensorflow-cpu==2.13.0
+flask==2.25
+tensorflow==2.13.0
 numpy
 pillow
-opencv-python
-scikit-learn
-matplotlib
+gdown
+gunicorn
