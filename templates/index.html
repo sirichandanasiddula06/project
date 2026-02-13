@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colon Cancer Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Colon Cancer Detection</h1>
+
+    <p class="subtitle">
+        Histopathology Image Analysis using Machine Learning
+    </p>
+
+    <!-- FORM (VERY IMPORTANT) -->
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result-box">
+        {% if "CANCER" in prediction %}
+            <div class="result cancer">Result: {{ prediction }}</div>
+        {% else %}
+            <div class="result normal">Result: {{ prediction }}</div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <footer>
+        <p>Machine Learning Based Medical Diagnosis</p>
+    </footer>
+</div>
+
+</body>
+</html>
